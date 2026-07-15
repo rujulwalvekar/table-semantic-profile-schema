@@ -1,0 +1,1 @@
+When asked to generate, revise, or validate a database table semantic profile, use the `table-semantic-profile` agent skill in `.github/skills/table-semantic-profile/SKILL.md`. Do not invent table semantics, joins, enum values, units, or alternative tables. Treat the template and validator as mandatory.
