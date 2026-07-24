@@ -1,0 +1,8 @@
+I want you to go through this. We have a presentation where we want to showcase all the good work that we have done using this spec-driven development, which we use to do the Kafka changes. For all the Kafka changes, we want to highlight:
+- What is the problem statement here?
+- What is realistically achievable through spec-driven development?
+- What are the challenges that we faced and how we overcame those challenges?
+- In general, what are the challenges a person could face for end-to-end agent code?
+- What I could achieve, I wanted in percentages, like how much of the code was written solely by the agent and how much I had to actually refactor.
+There are a lot of MD files, like the change.md, which we did for the change tracking. You can go through the history of our spec files to see how many iterations we had to go through. I want that in estimates and percentages, and I want to show people the window into what challenges a person will face. In my case, I had to do this with an upstream system and, technically, now a downstream system. What are the challenges that I have faced, and how others could leverage this?
+All of this I want us to go through, and I want you to check what things we did and what was possible. All of these things I want highlighted, so I want you to give me a file which has all of these changes. Essentially, this file is something that I am going to read, so I don't need a lot of fluff words and no assumptions. Please go through our chat history, go through those empty files that we have created for the Kafka changes, and tell me all of this.
