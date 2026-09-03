@@ -1,0 +1,5 @@
+•⁠  ⁠Cherry pick 37 clean files from v1
+•⁠  ⁠Apply three diverged H2 property edits
+•⁠  ⁠Restore + append changelog
+•⁠  ⁠Compile validate 7 Java modules
+•⁠  ⁠Run unit test for affected modules
