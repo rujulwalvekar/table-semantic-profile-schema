@@ -11,3 +11,8 @@ All of what you've written here is very focused on my exact development flow. I 
 This PR fixes the SQL injection issue by changing how we send data to Db2. Earlier, we added values directly to SQL strings with `.format()` and joined those strings for bulk inserts. The new implementation keeps the SQL statement separate from the data. It stores values in tuples and passes them through parameterized queries, so Db2 always treats them as data rather than executable SQL. The same pattern now protects bulk inserts and large `IN` queries.
 
 We also need to remove `conn.commit()` from the base execution method. The new bulk-insert logic divides large datasets into smaller chunks. If the base method commits each chunk separately, a later failure can leave earlier chunks in the database. We should commit only after all chunks complete successfully. If any chunk fails, we should roll back the complete transaction. This ensures that we either insert everything or insert nothing.
+
+Here is why either of these lines works best for the review comment:
+
+- **Line 64 (`cursor.execute(sql, tuple(params))`):** This is where the `ms.db2` driver receives the raw Python objects. We can ask: "Since we now pass raw tuples directly to the driver, does the Db2 driver strictly enforce Python types? If it does, strings for integer or date columns could cause type mismatch errors."
+- **Line 18 (`def coalesceDictGet(d, field, other=None):`):** This utility function retrieves data for all subclasses. Because it uses `.strip()`, it returns Python strings. We need to verify whether the driver converts these strings to column types such as `INT` and `DATE`. Otherwise, we might need explicit type conversion here.
